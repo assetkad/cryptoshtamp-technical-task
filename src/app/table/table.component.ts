@@ -106,4 +106,8 @@ export class TableComponent implements OnInit {
   toggleColumnVisibility() {
     this.filterRows();
   }
+
+  showPagination(): boolean {
+    return this.columns.some(column => column.visible);
+  }
 }

@@ -26,7 +26,7 @@
   </tbody>
 </table>
 
-<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+<pagination-controls *ngIf="showPagination()" (pageChange)="currentPage = $event"></pagination-controls>
 
 <h3>Column Visibility</h3>
 <div *ngFor="let column of columns">
