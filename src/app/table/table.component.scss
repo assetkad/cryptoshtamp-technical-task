@@ -1,0 +1,48 @@
+.table-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+th {
+  cursor: pointer;
+}
+
+.asc::after {
+  content: ' ▲';
+}
+
+.desc::after {
+  content: ' ▼';
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.pagination-container {
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 5px;
+}

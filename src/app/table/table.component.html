@@ -1,0 +1,37 @@
+<h2>Table</h2>
+
+<input type="text" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="updateSearch($event)">
+
+<label>Entries per page:</label>
+<select [(ngModel)]="pageSize">
+  <option value="5">5</option>
+  <option value="10">10</option>
+  <option value="20">20</option>
+</select>
+
+<table>
+  <thead>
+    <tr>
+      <ng-container *ngFor="let column of columns">
+        <th *ngIf="column.visible" (click)="sortTable(column.key)">{{ column.label }}</th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of filteredRows | paginate: { itemsPerPage: pageSize, currentPage: currentPage }">
+      <ng-container *ngFor="let column of columns">
+        <td *ngIf="column.visible">{{ getValue(row, column.key) }}</td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+<h3>Column Visibility</h3>
+<div *ngFor="let column of columns">
+  <label>
+    <input type="checkbox" [(ngModel)]="column.visible" (change)="toggleColumnVisibility()">
+    {{ column.label }}
+  </label>
+</div>
